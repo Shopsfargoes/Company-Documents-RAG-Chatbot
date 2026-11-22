@@ -1,0 +1,14 @@
+{
+  "name": "company-rag-chatbot",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Company Documents RAG chatbot (Vercel + Supabase + Gemini/OpenRouter + Google Drive)",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "dev": "vercel dev",
+    "test:connection": "node --env-file=.env.local scripts/test-connection.js"
+  }
+}
