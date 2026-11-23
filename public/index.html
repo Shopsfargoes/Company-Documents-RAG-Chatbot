@@ -7,11 +7,17 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <main class="card">
+  <p id="loading" class="muted">Loading&hellip;</p>
+
+  <main class="card" id="app" hidden>
     <h1>Company Docs Assistant</h1>
-    <p>Foundation check (Milestone 1)</p>
-    <p id="status" class="status">Checking backend&hellip;</p>
+    <p id="whoami" class="muted"></p>
+    <p id="health" class="status">Checking&hellip;</p>
+    <p id="admin-check" class="status">Checking&hellip;</p>
+    <button type="button" id="logout" class="secondary">Sign out</button>
   </main>
-  <script src="/js/app.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0"></script>
+  <script type="module" src="/js/app.js"></script>
 </body>
 </html>

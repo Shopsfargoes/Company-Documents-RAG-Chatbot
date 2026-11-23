@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in - Company Docs Assistant</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <main class="card">
+    <h1>Company Docs Assistant</h1>
+    <p class="muted">Sign in with your company account.</p>
+
+    <div class="tabs" role="tablist">
+      <button type="button" id="tab-login" role="tab" aria-selected="true">Sign in</button>
+      <button type="button" id="tab-register" role="tab" aria-selected="false">Register</button>
+    </div>
+
+    <div id="notice" class="notice" role="status" hidden></div>
+
+    <form id="login-form">
+      <label>Email
+        <input type="email" id="login-email" autocomplete="username" required>
+      </label>
+      <label>Password
+        <input type="password" id="login-password" autocomplete="current-password" required>
+      </label>
+      <button type="submit">Sign in</button>
+      <button type="button" class="link" id="show-forgot">Forgot your password?</button>
+    </form>
+
+    <form id="register-form" hidden>
+      <label>Full name
+        <input type="text" id="register-name" autocomplete="name" maxlength="200" required>
+      </label>
+      <label>Company email
+        <input type="email" id="register-email" autocomplete="email" required>
+      </label>
+      <label>Password (at least 10 characters)
+        <input type="password" id="register-password" autocomplete="new-password" minlength="10" required>
+      </label>
+      <label>Confirm password
+        <input type="password" id="register-confirm" autocomplete="new-password" minlength="10" required>
+      </label>
+      <button type="submit">Create account</button>
+    </form>
+
+    <form id="forgot-form" hidden>
+      <p class="muted">Enter your email and we will send you a reset link.</p>
+      <label>Email
+        <input type="email" id="forgot-email" autocomplete="email" required>
+      </label>
+      <button type="submit">Send reset link</button>
+      <button type="button" class="link" id="back-to-login">Back to sign in</button>
+    </form>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0"></script>
+  <script type="module" src="/js/login.js"></script>
+</body>
+</html>

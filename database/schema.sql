@@ -131,7 +131,7 @@ $$;
 -- The single source of truth for "may the current user read this document?".
 -- Admins: any document. Everyone else: only INDEXED documents that are
 -- company-visible, owned by them, or explicitly shared with them.
--- With no signed-in user, auth.uid() is NULL and the answer is false.
+-- With no signed-in user (auth.uid() is NULL) the answer is always false.
 create or replace function public.can_read_document(p_document_id uuid)
 returns boolean
 language sql stable security definer set search_path = ''
@@ -140,6 +140,7 @@ as $$
         select 1
         from public.documents d
         where d.id = p_document_id
+          and (select auth.uid()) is not null   -- fail closed: no user, no access
           and (
               (select public.is_admin())
               or (
