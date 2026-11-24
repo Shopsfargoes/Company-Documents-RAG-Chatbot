@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Administration - Company Docs Assistant</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <p id="loading" class="muted">Loading&hellip;</p>
+  <p id="forbidden" class="card" hidden>Administrators only. <a href="/">Back</a></p>
+
+  <main class="card wide" id="panel" hidden>
+    <h1>Administration</h1>
+    <p><a href="/">&larr; Back to the assistant</a></p>
+
+    <h2>Default visibility for imported documents</h2>
+    <p class="muted">
+      Restricted: new documents stay locked until an admin grants access.
+      Company: new documents are visible to every employee. Changing this
+      affects only documents imported from now on.
+    </p>
+    <div class="row">
+      <select id="visibility" aria-label="Default document visibility">
+        <option value="restricted">Restricted - locked until an admin grants access</option>
+        <option value="company">Company - visible to every employee</option>
+      </select>
+      <button type="button" id="save-settings">Save</button>
+    </div>
+    <div id="settings-notice" class="notice" role="status" hidden></div>
+
+    <h2>Google Drive connection</h2>
+    <p class="muted">Lists the files in the configured Drive folder. Nothing is imported yet.</p>
+    <button type="button" id="test-drive">List files in Drive folder</button>
+    <div id="drive-notice" class="notice" role="status" hidden></div>
+    <div class="table-wrap">
+      <table id="files-table" hidden>
+        <thead>
+          <tr><th>File</th><th>Type</th><th>Modified</th><th>Import</th></tr>
+        </thead>
+        <tbody id="files-body"></tbody>
+      </table>
+    </div>
+
+    <div class="row">
+      <button type="button" id="logout" class="secondary">Sign out</button>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0"></script>
+  <script type="module" src="/js/admin.js"></script>
+</body>
+</html>

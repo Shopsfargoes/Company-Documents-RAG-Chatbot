@@ -16,6 +16,7 @@ async function main() {
   const me = await meRes.json();
 
   $('whoami').textContent = `Signed in as ${me.fullName || me.email} (${me.role})`;
+  if (me.role === 'admin') $('admin-link').hidden = false;
   $('loading').hidden = true;
   $('app').hidden = false;
 
