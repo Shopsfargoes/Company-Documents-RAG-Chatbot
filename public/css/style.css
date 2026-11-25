@@ -133,3 +133,15 @@ select {
 table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
 th, td { text-align: left; padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--border); }
 th { color: var(--muted); font-weight: 600; }
+
+.small-text { font-size: 0.8rem; margin-top: 0.25rem; }
+.badge {
+  display: inline-block;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+.badge.chunked, .badge.indexed { color: var(--ok); border-color: var(--ok); }
+.badge.failed { color: var(--bad); border-color: var(--bad); }

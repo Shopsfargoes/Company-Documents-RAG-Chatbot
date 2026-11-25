@@ -29,18 +29,49 @@
     </div>
     <div id="settings-notice" class="notice" role="status" hidden></div>
 
+    <h2>Imported documents</h2>
+    <p class="muted">
+      Import reads every supported file in the Drive folder, splits it into
+      chunks and saves them. Unchanged files are skipped, so it is safe to run
+      as often as you like. Documents become searchable in the next milestone.
+    </p>
+    <div class="row">
+      <button type="button" id="sync">Import / sync from Drive</button>
+      <button type="button" id="retry-failed" class="secondary">Retry failed</button>
+      <button type="button" id="remove-missing" class="secondary" hidden></button>
+    </div>
+    <div id="sync-notice" class="notice" role="status" hidden></div>
+    <div class="table-wrap">
+      <table id="docs-table" hidden>
+        <thead>
+          <tr><th>Document</th><th>Status</th><th>Visibility</th><th>Chunks</th><th>Updated</th></tr>
+        </thead>
+        <tbody id="docs-body"></tbody>
+      </table>
+    </div>
+
     <h2>Google Drive connection</h2>
-    <p class="muted">Lists the files in the configured Drive folder. Nothing is imported yet.</p>
+    <p class="muted">
+      Lists the files in the configured Drive folder. &ldquo;Preview&rdquo; reads one file
+      and shows how it would be split into chunks without saving anything.
+    </p>
     <button type="button" id="test-drive">List files in Drive folder</button>
     <div id="drive-notice" class="notice" role="status" hidden></div>
     <div class="table-wrap">
       <table id="files-table" hidden>
         <thead>
-          <tr><th>File</th><th>Type</th><th>Modified</th><th>Import</th></tr>
+          <tr><th>File</th><th>Type</th><th>Modified</th><th>Import</th><th>Preview</th></tr>
         </thead>
         <tbody id="files-body"></tbody>
       </table>
     </div>
+
+    <section id="preview" hidden>
+      <h2>Chunk preview</h2>
+      <div id="preview-notice" class="notice" role="status" hidden></div>
+      <p id="preview-summary" class="muted"></p>
+      <div id="preview-chunks"></div>
+    </section>
 
     <div class="row">
       <button type="button" id="logout" class="secondary">Sign out</button>
