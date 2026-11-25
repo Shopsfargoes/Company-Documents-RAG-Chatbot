@@ -12,6 +12,7 @@
     "test:connection": "node --env-file=.env.local scripts/test-connection.js"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.0.0"
+    "@supabase/supabase-js": "^2.0.0",
+    "unpdf": "1.7.0"
   }
 }
